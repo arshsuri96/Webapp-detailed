@@ -13,7 +13,7 @@ func main() {
 	l := log.New(os.Stdout, "producit-api", log.LstdFlags)
 
 	hh := handler.NewHello(l)
-	gb := handler.Bye(l)
+	gb := handler.NewGoodbye(l)
 
 	sm := http.NewServeMux()
 	sm.Handle("/", hh)

@@ -5,14 +5,14 @@ import (
 	"net/http"
 )
 
-type Bye struct {
+type Goodbye struct {
 	l *log.Logger
 }
 
-func goodbye(l *log.Logger) *Bye {
-	return &Bye{l}
+func NewGoodbye(l *log.Logger) *Goodbye {
+	return &Goodbye{l}
 }
 
-func (g *Bye) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
+func (g *Goodbye) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
 	rw.Write([]byte("Byee"))
 }
