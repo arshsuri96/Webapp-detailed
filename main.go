@@ -14,12 +14,10 @@ import (
 func main() {
 	l := log.New(os.Stdout, "producit-api", log.LstdFlags)
 
-	hh := handler.NewHello(l)
-	gb := handler.NewGoodbye(l)
+	ph := handler.NewProducts(l)
 
 	sm := http.NewServeMux()
-	sm.Handle("/", hh)
-	sm.Handle("/bye", gb)
+	sm.Handle("/", ph)
 
 	s := &http.Server{
 		Addr:         ":8080",
@@ -31,7 +29,7 @@ func main() {
 	go func() {
 		err := s.ListenAndServe()
 		if err != nil {
-			l.Fatal(err)
+			return
 		}
 	}()
 
